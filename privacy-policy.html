@@ -75,6 +75,14 @@ Dataverse environment and what you choose to view/export through the App's repor
 <ul>
   <li><strong>No usage telemetry.</strong> The App does not track how you use it, what features
   you click, or report any usage analytics back to us.</li>
+  <li><strong>One-time component download.</strong> The first time you run the App, it asks your
+  permission to download the <code>Microsoft.Xrm.Data.PowerShell</code> module (published by
+  Microsoft) from the PowerShell Gallery, <code>https://www.powershellgallery.com</code>. If you
+  agree, the module is downloaded and installed into your own Windows user profile. This request is
+  handled by Windows PowerShell's standard package infrastructure; it sends only what is needed to
+  retrieve the package, and we neither receive nor collect any information about it. If you decline,
+  no download occurs. Once the module is installed, the App does not contact the PowerShell Gallery
+  again.</li>
   <li><strong>Update check.</strong> On launch, the App makes a single outbound call to GitHub's
   public release API to check whether a newer version is available (version number only — no
   other data is sent). This can be disabled entirely via <strong>Offline Mode</strong> in
