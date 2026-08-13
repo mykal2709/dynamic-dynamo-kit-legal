@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Dynamics Dynamo Kit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Dynamics <span class="accent">Dynamo</span> Kit</h1>
+  <div class="tag">CRM Admin Toolkit</div>
+</header>
+<nav class="crumbs"><a href="index.html">&larr; Legal home</a> <a href="terms-of-use.html">Terms of Use</a></nav>
+
+<h2 style="margin-top:0;border:none;">Privacy Policy</h2>
+<p class="updated">Last updated: August 13, 2026</p>
+
+<p>Dynamics Dynamo Kit ("the App," "we," "our") is a Windows desktop admin toolkit for Microsoft
+Dynamics 365 / Dataverse, developed and maintained by Mike Schweitzer. This policy explains what
+data the App touches, what (if anything) is collected by us, and how you stay in control of it.</p>
+
+<div class="callout">
+<strong>The short version:</strong> the App runs entirely on your own machine, talks directly to
+the Dynamics 365 / Dataverse environments <em>you</em> connect it to, and does not send your CRM
+data, credentials, or usage activity to us or to any third party. The only outbound network calls
+the App makes on its own are (1) authenticating you to Microsoft/Dataverse and (2) an optional
+check for app updates. Both are described below.
+</div>
+
+<h3>1. Data the App reads and writes</h3>
+<p>When you connect an environment and use a feature (user lookup, role/team management, bulk
+import, dedup/merge, reporting, etc.), the App reads and writes data <strong>directly between
+your machine and the Dynamics 365 / Dataverse environment you configured</strong> — using
+Microsoft's own Dataverse SDK/Web API and the credentials/authentication method you provide
+(Interactive/MFA, Service Principal, Certificate, or on-premises). This traffic goes straight to
+Microsoft/your Dataverse tenant. <strong>We never see it, log it, or have access to it.</strong></p>
+<p>Any CRM data the App displays (user records, roles, teams, license usage, hygiene reports,
+etc.) stays in memory and in the local files described in Section 2 — it is not transmitted
+anywhere else by the App.</p>
+
+<h3>2. Data stored locally on your machine</h3>
+<p>The App stores its own configuration and operational data <strong>only on the machine it's
+installed on</strong>, under the App's install folder (typically <code>config\</code> and
+<code>logs\</code> subfolders):</p>
+<ul>
+  <li><strong>Configuration</strong> — environment URLs, your chosen auth mode, organization
+  branding, theme, and (if you use Service Principal/Certificate auth) the credentials you
+  entered, stored in local JSON files. Protect this folder with normal OS file permissions the
+  same way you would any file containing credentials.</li>
+  <li><strong>Audit log</strong> — a local CSV log of changes made through the App (who/what/when),
+  used for your own change tracking. By default this stays local; you may optionally configure it
+  to also send entries to a SharePoint list, Azure Log Analytics workspace, or SQL Server database
+  <strong>that you own and control</strong> — the App only does this if you explicitly configure
+  one of those backends.</li>
+  <li><strong>Internal safety-net backups</strong> — before certain higher-risk bulk operations
+  (e.g. merging duplicate records), the App automatically saves a local snapshot of the affected
+  record(s) so changes can potentially be recovered if something goes wrong. These snapshots are
+  stored locally only, are never transmitted anywhere, and are periodically pruned automatically.</li>
+  <li><strong>License key status</strong> — if you purchase a Pro license, the license key you
+  enter is validated against our license server (see Section 4) and the resulting status
+  (valid/expired/tier) is cached locally so the App doesn't need to re-check on every launch.</li>
+</ul>
+<p>None of the above is ever uploaded to us, synced to any cloud service we operate, or shared
+with any third party, except where you have explicitly configured an audit backend of your own.</p>
+
+<h3>3. Personal data / PII / PHI</h3>
+<p>The App is a general-purpose admin tool. It does not intentionally collect, store, or transmit
+personally identifiable information (PII) or protected health information (PHI) about you or
+about any end user of your Dynamics 365 environment, beyond what is already stored in your own
+Dataverse environment and what you choose to view/export through the App's reporting features
+(which stay local unless you explicitly export or share them yourself).</p>
+
+<h3>4. Telemetry and outbound network calls</h3>
+<ul>
+  <li><strong>No usage telemetry.</strong> The App does not track how you use it, what features
+  you click, or report any usage analytics back to us.</li>
+  <li><strong>Update check.</strong> On launch, the App makes a single outbound call to GitHub's
+  public release API to check whether a newer version is available (version number only — no
+  other data is sent). This can be disabled entirely via <strong>Offline Mode</strong> in
+  Settings.</li>
+  <li><strong>License validation.</strong> If you have a Pro license key, the App periodically
+  validates that key against our license server. This call includes the license key and a machine
+  identifier used solely to enforce license terms (e.g. seat limits) — no CRM data, credentials,
+  or personal information about your end users is included.</li>
+  <li><strong>Authentication.</strong> Signing in (Interactive/MFA, Service Principal, or
+  Certificate auth) goes directly to Microsoft's identity platform (Azure AD / Entra ID) and your
+  Dataverse environment, exactly as it would for any Dynamics 365 client application. We are not a
+  party to that traffic.</li>
+</ul>
+
+<h3>5. Children's privacy</h3>
+<p>The App is a business/IT administration tool intended for use by adult professionals managing
+Dynamics 365 environments. It is not directed at, and we do not knowingly collect data from,
+children under 13.</p>
+
+<h3>6. Your choices and control</h3>
+<ul>
+  <li>You control what auth mode, audit backend, and update behavior the App uses — all are
+  configurable or can be turned off in Settings.</li>
+  <li>You can delete the App's local config/log folders at any time to remove all locally stored
+  data.</li>
+  <li>Because we never receive your data in the first place, there is no "delete my data" request
+  to make to us for anything covered by Sections 1–3 — it never left your machine.</li>
+</ul>
+
+<h3>7. Changes to this policy</h3>
+<p>If this policy changes, we will update the "Last updated" date above and note material changes
+in the project changelog. Continued use of the App after an update constitutes acceptance of the
+revised policy.</p>
+
+<h3>8. Contact</h3>
+<p>Questions about this policy can be directed to the developer via the GitHub repository
+(<code>https://github.com/mykal2709/DynamicsDynamoKit</code>).</p>
+
+<footer>
+  — Mike Schweitzer, Developer<br><br>
+  &copy; 2026 Mike Schweitzer. Dynamics Dynamo Kit is an independent, third-party tool and is not
+  produced, endorsed, sponsored, or approved by Microsoft.
+</footer>
+</body>
+</html>
