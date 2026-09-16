@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-  <h1>Dynamics <span class="accent">Dynamo</span> Kit</h1>
+  <h1>Dynamic <span class="accent">Dynamo</span> Kit</h1>
   <div class="tag">CRM Admin Toolkit</div>
 </header>
 <nav class="crumbs"><a href="index.html">&larr; Legal home</a> <a href="privacy-policy.html">Privacy Policy</a></nav>
@@ -24,9 +24,9 @@ THESE TERMS. IF YOU DO NOT AGREE, DO NOT INSTALL OR USE THE APP.
 
 <p>These terms are between you ("<strong>you</strong>," "<strong>Licensee</strong>") and Mike
 Schweitzer, the developer and publisher of Dynamic Dynamo Kit ("<strong>we</strong>,"
-"<strong>our</strong>," "<strong>Licensor</strong>"), and govern your use of the Dynamics Dynamo
-Kit software, including the PowerShell module, GUI application, setup wizard, and accompanying
-documentation (collectively, the "<strong>App</strong>").</p>
+"<strong>our</strong>," "<strong>Licensor</strong>"), and govern your use of the Dynamic Dynamo
+Kit software, including the desktop application, command-line interface, setup wizard, and
+accompanying documentation (collectively, the "<strong>App</strong>").</p>
 
 <div class="callout">
 <strong>No affiliation with Microsoft.</strong> Dynamic Dynamo Kit is an independent, third-party
@@ -49,9 +49,19 @@ license fee:</p>
   <li><strong>Trial</strong>: the App may include a time-limited trial of Pro-tier features. The
   trial is provided for evaluation purposes only and expires automatically.</li>
   <li><strong>Pro tier</strong>: a valid, paid Pro license key grants you a non-exclusive,
-  non-transferable license to use Pro-tier features, subject to the seat/machine limits associated
-  with your purchase as described at the point of sale (e.g. Microsoft Store listing).</li>
+  non-transferable license to use Pro-tier features. <strong>Pro is licensed per device.</strong>
+  Each license key may be activated on up to the number of devices stated at the point of sale for
+  the plan you bought. You may free a device at any time by choosing <strong>Remove License</strong>
+  inside the App on that device, which releases it so you can activate a different one.</li>
 </ul>
+<p><strong>Where Pro is sold.</strong> Pro licenses are <strong>not</strong> sold through the
+Microsoft Store. The App itself is distributed free through the Microsoft Store; the Pro upgrade is
+purchased separately from our checkout, which is operated on our behalf by <strong>Lemon
+Squeezy</strong> (Lemon Squeezy LLC), an independent third-party commerce platform acting as
+merchant of record. Your payment, invoice, tax handling and refunds for Pro are therefore governed
+by Lemon Squeezy's terms in addition to these terms, and Microsoft is not a party to that
+transaction and provides no support, billing or refunds for it. See section 12 for refund
+handling.</p>
 <p>This is a license to use the App, not a sale of it. We retain all right, title, and interest
 in and to the App, including all intellectual property rights, except for the portions of code we
 have released under an open-source license.</p>
@@ -67,8 +77,8 @@ connect it to.</p>
 <h3>3. Restrictions</h3>
 <p>You may not:</p>
 <ul>
-  <li>Redistribute, resell, sublicense, or share your Pro license key with anyone not covered by
-  your purchased seats/machines;</li>
+  <li>Redistribute, resell, sublicense, or share your Pro license key with anyone outside the
+  organization that purchased it, or activate it on more devices than your plan allows;</li>
   <li>Reverse engineer, decompile, or disassemble the App except to the extent such restriction is
   prohibited by applicable law;</li>
   <li>Remove or alter any copyright, trademark, or other proprietary notices from the App;</li>
@@ -125,20 +135,17 @@ expenses (including reasonable legal fees) arising out of or related to (a) your
 your violation of any rights of a third party, including Microsoft or any end users of your
 Dynamics 365 environment.</p>
 
-<h3>8. Third-party components and required downloads</h3>
-<p><strong>Microsoft.Xrm.Data.PowerShell.</strong> The App requires the
-<code>Microsoft.Xrm.Data.PowerShell</code> module, published by Microsoft on the PowerShell Gallery,
-in order to connect to Dynamics 365 / Dataverse. That module is <strong>not</strong> included with
-the App. The first time you run the App it will ask your permission before downloading the module
-from the PowerShell Gallery (<code>https://www.powershellgallery.com</code>) and installing it for
-your Windows user account only. If you decline, the App will exit and you may install the module
-yourself at any time. An internet connection is required for this one-time download.</p>
-<p><strong>Separate terms apply.</strong> The <code>Microsoft.Xrm.Data.PowerShell</code> module and
-the Microsoft software development kit assemblies it contains are licensed to you by Microsoft
-and/or the module's publisher under <strong>their own terms, not these terms</strong>. We do not
-distribute those components, and we grant you no rights in them. You are responsible for reviewing
-and complying with the terms that accompany them. To the maximum extent permitted by law, we make no
-warranty and accept no liability whatsoever in respect of any third-party component.</p>
+<h3>8. Third-party components</h3>
+<p><strong>Bundled Microsoft libraries.</strong> The App connects to Dynamics 365 / Dataverse using
+Microsoft's <code>Microsoft.PowerPlatform.Dataverse.Client</code> library and other
+Microsoft-published components, which are compiled into the App and distributed with it. There is
+<strong>no</strong> separate download step and no additional installation is required of you.</p>
+<p><strong>Separate terms apply.</strong> Those Microsoft libraries, and the Microsoft software
+development kit assemblies they contain, are licensed by Microsoft under <strong>their own terms,
+not these terms</strong>. We grant you no rights in them beyond those Microsoft grants. You are
+responsible for reviewing and complying with the terms that accompany them. To the maximum extent
+permitted by law, we make no warranty and accept no liability whatsoever in respect of any
+third-party component.</p>
 <p><strong>Protection of Microsoft's rights.</strong> You agree that, with respect to any Microsoft
 software, software development kit assemblies, or services accessed or used through the App, you
 will not take any action inconsistent with Microsoft's rights, and that Microsoft's own license
@@ -148,8 +155,9 @@ Microsoft is not a party to these terms and has no obligation or liability to yo
 the App.</p>
 
 <h3>9. Support</h3>
-<p>Support is provided on a best-effort basis. Purchasing a Pro license funds continued
-development; it does not create a support-level agreement (SLA) or guarantee of response time.</p>
+<p>Support is provided on a best-effort basis as described in our support documentation.
+Purchasing a Pro license funds continued development; it does not create a support-level
+agreement (SLA) or guarantee of response time.</p>
 
 <h3>10. Term and termination</h3>
 <p>This license is effective until terminated. It terminates automatically if you fail to comply
@@ -162,18 +170,39 @@ App and delete all copies in your possession.</p>
 <a href="privacy-policy.html">Privacy Policy</a>). These terms apply to all versions and updates
 of the App unless a materially different agreement accompanies a specific update.</p>
 
-<h3>12. Governing law</h3>
+<h3>12. Payment, refunds and cancellation</h3>
+<p>Pro is billed as a monthly or annual subscription (depending on the plan you choose) through
+<strong>Lemon Squeezy</strong>, which acts as merchant of record for the sale. Lemon Squeezy issues
+your receipt, handles applicable sales tax/VAT, and processes refunds. Because the sale does not
+take place through the Microsoft Store, <strong>Microsoft cannot issue a refund for a Pro
+license</strong>, and Microsoft Store refund policies do not apply to it.</p>
+<ul>
+  <li>A free trial of Pro features is available so you can evaluate the App before paying.</li>
+  <li>You may cancel at any time from the customer portal linked in your purchase receipt.
+  Cancellation stops future renewals; your Pro features remain available until the end of the paid
+  period.</li>
+  <li>Refund requests should be sent to the developer via our support channels, or raised directly
+  with Lemon Squeezy.</li>
+  <li>If the Pro licensing service is permanently discontinued (see section 10), the App remains
+  usable at the free tier; nothing you have already installed stops working.</li>
+</ul>
+
+<h3>13. Governing law</h3>
 <p>These terms are governed by the laws of the United States and the state in which the developer
 resides, without regard to conflict-of-law principles, except where a different governing law is
-required by the platform through which you purchased the App (e.g. Microsoft Store terms).</p>
+required by the platform through which you obtained or purchased the App (for example, Microsoft
+Store terms for the free download, or Lemon Squeezy's terms for a Pro purchase).</p>
 
-<h3>13. Entire agreement</h3>
-<p>These terms, together with the <a href="privacy-policy.html">Privacy Policy</a> and any
-Microsoft Store terms applicable to your purchase, constitute the entire agreement between you
-and us regarding the App and supersede any prior agreements.</p>
+<h3>14. Entire agreement</h3>
+<p>These terms, together with the <a href="privacy-policy.html">Privacy Policy</a>, the
+<code>LICENSE</code> file (for the underlying open-source code), any Microsoft Store terms
+applicable to your download of the App, and Lemon Squeezy's terms applicable to a Pro purchase,
+constitute the entire agreement between you and us regarding the App and supersede any prior
+agreements.</p>
 
-<h3>14. Contact</h3>
-<p>Questions about these terms can be directed to the developer via the GitHub repository
+<h3>15. Contact</h3>
+<p>Questions about these terms can be directed to the developer via our support channels or the
+GitHub repository
 (<code>https://github.com/mykal2709/DynamicDynamoKit</code>).</p>
 
 <footer>
