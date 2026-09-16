@@ -8,13 +8,13 @@
 </head>
 <body>
 <header>
-  <h1>Dynamics <span class="accent">Dynamo</span> Kit</h1>
+  <h1>Dynamic <span class="accent">Dynamo</span> Kit</h1>
   <div class="tag">CRM Admin Toolkit</div>
 </header>
 <nav class="crumbs"><a href="index.html">&larr; Legal home</a> <a href="terms-of-use.html">Terms of Use</a></nav>
 
 <h2 style="margin-top:0;border:none;">Privacy Policy</h2>
-<p class="updated">Last updated: August 13, 2026</p>
+<p class="updated">Last updated: September 1, 2026</p>
 
 <p>Dynamic Dynamo Kit ("the App," "we," "our") is a Windows desktop admin toolkit for Microsoft
 Dynamics 365 / Dataverse, developed and maintained by Mike Schweitzer. This policy explains what
@@ -24,8 +24,9 @@ data the App touches, what (if anything) is collected by us, and how you stay in
 <strong>The short version:</strong> the App runs entirely on your own machine, talks directly to
 the Dynamics 365 / Dataverse environments <em>you</em> connect it to, and does not send your CRM
 data, credentials, or usage activity to us or to any third party. The only outbound network calls
-the App makes on its own are (1) authenticating you to Microsoft/Dataverse and (2) an optional
-check for app updates. Both are described below.
+the App makes on its own are (1) authenticating you to Microsoft/Dataverse, (2) an optional
+check for app updates, and (3) &mdash; only if you have entered a Pro license key &mdash;
+validating that key against our license service. All three are described below.
 </div>
 
 <h3>1. Data the App reads and writes</h3>
@@ -57,12 +58,20 @@ installed on</strong>, under the App's install folder (typically <code>config\</
   (e.g. merging duplicate records), the App automatically saves a local snapshot of the affected
   record(s) so changes can potentially be recovered if something goes wrong. These snapshots are
   stored locally only, are never transmitted anywhere, and are periodically pruned automatically.</li>
-  <li><strong>License key status</strong> — if you purchase a Pro license, the license key you
-  enter is validated against our license server (see Section 4) and the resulting status
-  (valid/expired/tier) is cached locally so the App doesn't need to re-check on every launch.</li>
+  <li><strong>License key and status</strong> &mdash; if you purchase a Pro license, the license
+  key you enter is stored <strong>in plain text</strong> in the App's local
+  <code>settings.json</code>, so the App can re-validate it without asking you to type it again.
+  It is validated against our license service (see Section 4) and the resulting signed
+  confirmation (valid/expired/tier, plus an expiry date) is cached locally so the App doesn't need
+  to re-check on every launch and continues to work offline for a limited period. Treat that file
+  the way you would any file containing a licence or credential: a Pro key is personal to you and
+  anyone who can read the file can read the key. You can remove it at any time by deactivating the
+  license in Settings, which clears the stored key.</li>
 </ul>
 <p>None of the above is ever uploaded to us, synced to any cloud service we operate, or shared
-with any third party, except where you have explicitly configured an audit backend of your own.</p>
+with any third party, with two exceptions: an audit backend you have explicitly configured
+yourself, and the license key and machine identifier described in Section 4, which are sent to our
+license service only when you activate or validate a Pro license.</p>
 
 <h3>3. Personal data / PII / PHI</h3>
 <p>The App is a general-purpose admin tool. It does not intentionally collect, store, or transmit
@@ -75,22 +84,25 @@ Dataverse environment and what you choose to view/export through the App's repor
 <ul>
   <li><strong>No usage telemetry.</strong> The App does not track how you use it, what features
   you click, or report any usage analytics back to us.</li>
-  <li><strong>One-time component download.</strong> The first time you run the App, it asks your
-  permission to download the <code>Microsoft.Xrm.Data.PowerShell</code> module (published by
-  Microsoft) from the PowerShell Gallery, <code>https://www.powershellgallery.com</code>. If you
-  agree, the module is downloaded and installed into your own Windows user profile. This request is
-  handled by Windows PowerShell's standard package infrastructure; it sends only what is needed to
-  retrieve the package, and we neither receive nor collect any information about it. If you decline,
-  no download occurs. Once the module is installed, the App does not contact the PowerShell Gallery
-  again.</li>
+  <li><strong>No component downloads.</strong> Everything the App needs to connect to
+  Dynamics 365 / Dataverse is included in the App itself. It does not download, install, or ask
+  permission to install any additional modules or packages at runtime, and it does not contact
+  the PowerShell Gallery.</li>
   <li><strong>Update check.</strong> On launch, the App makes a single outbound call to GitHub's
   public release API to check whether a newer version is available (version number only — no
   other data is sent). This can be disabled entirely via <strong>Offline Mode</strong> in
   Settings.</li>
   <li><strong>License validation.</strong> If you have a Pro license key, the App periodically
-  validates that key against our license server. This call includes the license key and a machine
-  identifier used solely to enforce license terms (e.g. seat limits) — no CRM data, credentials,
-  or personal information about your end users is included.</li>
+  validates that key against our license service, which is hosted on <strong>Cloudflare
+  Workers</strong> and in turn checks your key with <strong>Lemon Squeezy</strong>, our payment and
+  licensing provider. This call includes the license key and a machine identifier — an irreversible
+  hash derived from a Windows machine GUID, used solely to enforce license terms such as device
+  activation limits. It contains no user name, computer name, CRM data, credentials, or information about your
+  end users. As with any network request, our service and Cloudflare necessarily see the originating
+  IP address; it is not stored by us or used to build a profile. The service returns a short-lived
+  signed confirmation that lets the App keep working offline for a limited period.
+  <br>Sub-processors for this feature: Cloudflare, Inc. (request handling) and Lemon Squeezy, LLC
+  (payments and license issuance). No other party receives this data.</li>
   <li><strong>Authentication.</strong> Signing in (Interactive/MFA, Service Principal, or
   Certificate auth) goes directly to Microsoft's identity platform (Azure AD / Entra ID) and your
   Dataverse environment, exactly as it would for any Dynamics 365 client application. We are not a
@@ -118,7 +130,8 @@ in the project changelog. Continued use of the App after an update constitutes a
 revised policy.</p>
 
 <h3>8. Contact</h3>
-<p>Questions about this policy can be directed to the developer via the GitHub repository
+<p>Questions about this policy can be directed to the developer via our support channels or the
+GitHub repository
 (<code>https://github.com/mykal2709/DynamicDynamoKit</code>).</p>
 
 <footer>
