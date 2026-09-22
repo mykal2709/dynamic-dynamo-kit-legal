@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Understand direct roles, team inheritance, effective access, user comparison, and role drift in Dataverse.">
+<title>Direct Roles Are Not the Whole Access Story - Dynamic Dynamo Kit</title><link rel="stylesheet" href="style.css"></head>
+<body class="docs-page"><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
+<nav aria-label="Main navigation"><a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a><a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a></nav></header>
+<main id="main-content"><article class="article">
+  <nav class="article-nav"><a href="blog.html">&larr; All articles</a></nav>
+  <p class="article-meta">SECURITY &middot; 7 MIN READ</p>
+  <h1>Direct roles are not the whole access story</h1>
+  <p class="lead">When two people with similar job titles can do different things in Dataverse, the
+    answer often sits outside their direct role list.</p>
+  <h2>Build the access chain</h2>
+  <p>Start with the person's direct security roles, business unit, and team memberships. Team roles
+    can add inherited privileges, while privilege depth affects where an operation is allowed.
+    Looking at only one layer can produce a confident but incomplete answer.</p>
+  <h2>Calculate effective access</h2>
+  <p>Effective Access combines direct and inherited permissions. Filter the result to the table and
+    operation under investigation, then trace the source. This is often faster than opening every
+    role and team manually, but it should still be paired with the current business-unit and
+    ownership context.</p>
+  <img class="doc-image" src="assets/screenshots/04-effective-access.png" alt="Effective Access calculation screen">
+  <h2>Compare a known-good peer</h2>
+  <p>User comparison is useful when one person has the expected access and another does not.
+    Compare their complete footprints rather than copying everything immediately. A difference may
+    be intentional, and copying a highly privileged user's access can spread excessive permissions.</p>
+  <h2>Check environment drift</h2>
+  <p>Role names can match while privilege definitions differ. Use Role Diff to compare definitions
+    between environments, and use team-role comparison when matching a team's assignments to
+    production. Export the differences before approving any synchronization.</p>
+  <div class="tip"><strong>Good access-review evidence:</strong> direct roles, team memberships,
+    effective privileges, business-unit context, comparison result, and the approved reason for any change.</div>
+  <div class="article-cta">Follow the <a href="tutorials.html#access">effective-access tutorial script</a>
+    or review the <a href="user-manual.html#governance">Governance manual</a>.</div>
+</article></main><footer class="site-footer">
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Mike Schweitzer.</p></div>
+  <nav aria-label="Legal and support"><a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a><a href="support.html">Support</a></nav>
+  <p class="disclaimer">Independent third-party product; not affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft.</p>
+</footer></body></html>

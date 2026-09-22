@@ -3,59 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dynamic Dynamo Kit is a native Windows toolkit for Dynamics 365 and Dataverse administrators. Audit access, find duplicates, and simplify governance.">
+<meta name="description" content="Dynamic Dynamo Kit is a Windows toolkit for Dynamics 365 and Dataverse administrators. Install free from Microsoft Store.">
 <title>Dynamic Dynamo Kit - Dynamics 365 and Dataverse Admin Toolkit</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="landing">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
   <a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
   <nav aria-label="Main navigation">
-    <a href="#features">Features</a>
+    <a href="quick-start.html">Quick start</a>
+    <a href="user-manual.html">User manual</a>
+    <a href="tutorials.html">Tutorials</a>
+    <a href="blog.html">Blog</a>
     <a href="#pricing">Pricing</a>
-    <a href="#requirements">Requirements</a>
-    <a href="privacy-policy.html">Privacy</a>
-    <a href="terms-of-use.html">Terms</a>
   </nav>
 </header>
 
-<main>
+<main id="main-content">
   <section class="hero">
-    <p class="eyebrow">Native Windows admin toolkit</p>
-    <h1>Spend less time clicking through Dynamics 365.</h1>
+    <p class="eyebrow">Now available for Windows</p>
+    <h1>See access clearly. Make Dataverse changes deliberately.</h1>
     <p class="hero-copy">Audit security roles, compare user access, trace effective privileges,
-      detect duplicate records, and manage team assignments from one purpose-built desktop app.</p>
+      find duplicate records, and manage team assignments from one native desktop app.</p>
     <div class="hero-actions">
-      <a class="button primary" href="mailto:blaze2709@gmail.com?subject=Dynamic%20Dynamo%20Kit">Contact us</a>
-      <a class="button secondary" href="#pricing">View plans</a>
+      <a class="button primary" href="https://apps.microsoft.com/detail/9PPPSZWZ87WM">Get it from Microsoft Store</a>
+      <a class="button secondary" href="quick-start.html">Read the quick start</a>
     </div>
-    <p class="availability">Coming soon to the Microsoft Store for Windows 10 and Windows 11.</p>
+    <p class="availability">Version 2.3.3 is live. The Free tier is included; Pro is an optional upgrade sold separately.</p>
+  </section>
+
+  <section class="screenshot-feature" aria-labelledby="screenshot-title">
+    <div>
+      <p class="eyebrow">Designed for administrators</p>
+      <h2 id="screenshot-title">Your common admin workflows in one place.</h2>
+      <p>Browse a user's direct roles, team memberships, business unit, app profiles, and chat
+        queues without jumping between multiple admin pages.</p>
+      <a class="text-link" href="user-manual.html#users">Explore the Users manual &rarr;</a>
+    </div>
+    <img src="assets/screenshots/01-roles.png" alt="Dynamic Dynamo Kit Users tab showing user role assignments">
   </section>
 
   <section id="features" class="section">
     <p class="eyebrow">Built for Dataverse administrators</p>
-    <h2>See access clearly. Make changes deliberately.</h2>
+    <h2>Investigate first. Change only when you are ready.</h2>
     <div class="card-grid">
       <article class="card">
+        <span class="card-kicker">Free</span>
         <h3>Access and role reporting</h3>
-        <p>Browse users, teams, business units, and security roles. Find every user or team assigned
-          to a role without exporting data to spreadsheets.</p>
+        <p>Browse users, teams, business units, and security roles. Report on users or teams
+          assigned to a role and export the results.</p>
       </article>
       <article class="card">
-        <h3>Duplicate Radar</h3>
-        <p>Run interactive scans for potential duplicate records and review confidence-scored
-          clusters before taking action. Pro adds side-by-side review, bulk merging, and scheduled
-          scans.</p>
+        <span class="card-kicker">Free + Pro</span>
+        <h3>Duplicate cleanup</h3>
+        <p>Use Duplicate Radar to investigate likely duplicates. Pro adds match profiles,
+          side-by-side review, deliberate merging, and recurring scan schedules.</p>
       </article>
       <article class="card">
+        <span class="card-kicker">Pro</span>
         <h3>Governance and insights</h3>
-        <p>Trace effective privileges, compare roles and users, review risks, and detect environment
-          drift with snapshots and compliance reports.</p>
+        <p>Trace effective access, compare roles and users, review risks, monitor changes, and
+          produce evidence-friendly compliance reports.</p>
       </article>
       <article class="card">
-        <h3>Safer administration</h3>
-        <p>Preview high-risk operations with what-if checks, block direct edits when needed, and
-          reverse supported recent actions with Undo.</p>
+        <span class="card-kicker">Safety first</span>
+        <h3>What-If and confirmation</h3>
+        <p>Preview supported write operations, review the expected impact, and confirm changes.
+          Undo is available for supported recent actions with retained recovery data.</p>
       </article>
     </div>
   </section>
@@ -66,8 +81,30 @@
       <h2>Direct connection. No CRM data on our servers.</h2>
     </div>
     <p>Dynamic Dynamo Kit runs on your Windows computer and connects directly to the environments
-      you choose. We do not collect telemetry, analytics, or crash reports. Read the full
+      you choose. It does not collect usage telemetry. Read the full
       <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Documentation center</p>
+    <h2>Get productive without guessing.</h2>
+    <div class="card-grid three">
+      <article class="card">
+        <h3>Quick start</h3>
+        <p>Install, connect your first environment, test access, and run a safe first report.</p>
+        <a class="text-link" href="quick-start.html">Start here &rarr;</a>
+      </article>
+      <article class="card">
+        <h3>Detailed manual</h3>
+        <p>Feature-by-feature guidance, permissions, outputs, and safety notes for version 2.3.3.</p>
+        <a class="text-link" href="user-manual.html">Open the manual &rarr;</a>
+      </article>
+      <article class="card">
+        <h3>Tutorials and articles</h3>
+        <p>Captioned walkthroughs, recording scripts, and practical administration articles.</p>
+        <a class="text-link" href="tutorials.html">Watch tutorials &rarr;</a>
+      </article>
+    </div>
   </section>
 
   <section id="pricing" class="section">
@@ -75,20 +112,20 @@
     <h2>Start free. Unlock Pro when you need to act at scale.</h2>
     <div class="pricing-grid">
       <article class="price-card">
-        <h3>Basic</h3>
+        <h3>Free</h3>
         <p class="price">Free <span>forever</span></p>
-        <p>Role exploration, team management, reporting, interactive Duplicate Radar scans, and Undo.</p>
+        <p>Core user, organization, reporting, settings, and Duplicate Radar workflows.</p>
       </article>
       <article class="price-card featured">
         <h3>Pro Monthly</h3>
-        <p class="badge">Most popular</p>
+        <p class="badge">Two devices</p>
         <p class="price">$15 <span>/ month</span></p>
-        <p>Two device activations plus bulk operations, governance, insights, and duplicate merging.</p>
+        <p>Bulk operations, governance, insights, onboarding, offboarding, and duplicate merging.</p>
       </article>
       <article class="price-card">
         <h3>Pro Annual</h3>
         <p class="price">$144 <span>/ year</span></p>
-        <p>All Pro features with two device activations and a 20% annual discount.</p>
+        <p>All Pro features with two device activations and annual billing.</p>
       </article>
       <article class="price-card">
         <h3>Team</h3>
@@ -96,10 +133,9 @@
         <p>All Pro features with a shared pool of ten device activations.</p>
       </article>
     </div>
-    <p class="trial-note">A 14-day Pro trial will be available at launch, with no credit card
-      required. Purchasing opens when the app is published. Pro is sold through Lemon Squeezy,
-      our merchant of record. See the <a href="terms-of-use.html">Terms of Use</a> for payment,
-      cancellation, and refund terms.</p>
+    <p class="trial-note">A 14-day Pro trial is included with no credit card required. Pro purchases
+      open the secure Lemon Squeezy checkout from inside the app. Microsoft does not process Pro
+      purchases. See the <a href="terms-of-use.html">Terms of Use</a>.</p>
   </section>
 
   <section id="requirements" class="section requirements">
@@ -110,20 +146,29 @@
     <ul>
       <li>Windows 10 version 2004 or later, or Windows 11 (64-bit)</li>
       <li>A Dynamics 365 or Dataverse environment</li>
-      <li>An account with sufficient privileges for the operations you perform</li>
+      <li>An account with sufficient privileges for each operation you perform</li>
+      <li>Interactive/MFA, service principal, or certificate authentication</li>
     </ul>
+  </section>
+
+  <section class="support-band">
+    <div>
+      <p class="eyebrow">Independent software</p>
+      <h2>Built and supported by one developer.</h2>
+    </div>
+    <p>Support is provided on a best-effort basis outside regular working hours, so response times
+      can vary and immediate replies should not be expected. Licensing and installation problems
+      are prioritized. Pro does not include an SLA.</p>
   </section>
 </main>
 
 <footer class="site-footer">
-  <div>
-    <strong>Dynamic Dynamo Kit</strong>
-    <p>&copy; 2026 Mike Schweitzer.</p>
-  </div>
-  <nav aria-label="Legal and support">
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="terms-of-use.html">Terms of Use</a>
-    <a href="mailto:blaze2709@gmail.com">Support</a>
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Mike Schweitzer.</p></div>
+  <nav aria-label="Documentation, legal and support">
+    <a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a>
+    <a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a>
+    <a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a>
+    <a href="support.html">Support</a>
   </nav>
   <p class="disclaimer">Dynamic Dynamo Kit is an independent, third-party product. It is not
     affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft Corporation.</p>

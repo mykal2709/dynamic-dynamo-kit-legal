@@ -3,18 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy policy for Dynamic Dynamo Kit, including local storage, Dataverse access, updates, and Pro license validation.">
 <title>Privacy Policy — Dynamic Dynamo Kit</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header>
   <h1>Dynamic <span class="accent">Dynamo</span> Kit</h1>
   <div class="tag">CRM Admin Toolkit</div>
 </header>
-<nav class="crumbs"><a href="index.html">&larr; Dynamic Dynamo Kit</a> <a href="terms-of-use.html">Terms of Use</a></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">&larr; Dynamic Dynamo Kit</a><a href="quick-start.html">Quick start</a><a href="user-manual.html">User manual</a><a href="tutorials.html">Tutorials</a><a href="terms-of-use.html">Terms of Use</a></nav>
 
+<main id="main-content">
 <h2 style="margin-top:0;border:none;">Privacy Policy</h2>
-<p class="updated">Last updated: September 1, 2026</p>
+<p class="updated">Last updated: September 22, 2026</p>
 
 <p>Dynamic Dynamo Kit ("the App," "we," "our") is a Windows desktop admin toolkit for Microsoft
 Dynamics 365 / Dataverse, developed and maintained by Mike Schweitzer. This policy explains what
@@ -64,7 +67,7 @@ installed on</strong>, under the App's install folder (typically <code>config\</
   It is validated against our license service (see Section 4) and the resulting signed
   confirmation (valid/expired/tier, plus an expiry date) is cached locally so the App doesn't need
   to re-check on every launch and continues to work offline for a limited period. Treat that file
-  the way you would any file containing a licence or credential: a Pro key is personal to you and
+  the way you would any file containing a license or credential: a Pro key is personal to you and
   anyone who can read the file can read the key. You can remove it at any time by deactivating the
   license in Settings, which clears the stored key.</li>
 </ul>
@@ -93,16 +96,17 @@ Dataverse environment and what you choose to view/export through the App's repor
   other data is sent). This can be disabled entirely via <strong>Offline Mode</strong> in
   Settings.</li>
   <li><strong>License validation.</strong> If you have a Pro license key, the App periodically
-  validates that key against our license service, which is hosted on <strong>Cloudflare
-  Workers</strong> and in turn checks your key with <strong>Lemon Squeezy</strong>, our payment and
-  licensing provider. This call includes the license key and a machine identifier — an irreversible
-  hash derived from a Windows machine GUID, used solely to enforce license terms such as device
+  validates that key against a license service operated by the publisher. That service in turn
+  checks your key with <strong>Lemon Squeezy</strong>, our payment and licensing provider. This
+  call includes the license key and a machine identifier — an irreversible hash derived from the
+  Windows <code>MachineGuid</code>. If <code>MachineGuid</code> is unavailable, the App falls back
+  to the firmware UUID; if the firmware UUID is also unavailable, it falls back to the
+  disk volume serial number. The identifier is used solely to enforce license terms such as device
   activation limits. It contains no user name, computer name, CRM data, credentials, or information about your
-  end users. As with any network request, our service and Cloudflare necessarily see the originating
+  end users. As with any network request, the license service necessarily receives the originating
   IP address; it is not stored by us or used to build a profile. The service returns a short-lived
   signed confirmation that lets the App keep working offline for a limited period.
-  <br>Sub-processors for this feature: Cloudflare, Inc. (request handling) and Lemon Squeezy, LLC
-  (payments and license issuance). No other party receives this data.</li>
+  <br>Sub-processor for this feature: Lemon Squeezy, LLC (payments and license issuance).</li>
   <li><strong>Authentication.</strong> Signing in (Interactive/MFA, Service Principal, or
   Certificate auth) goes directly to Microsoft's identity platform (Azure AD / Entra ID) and your
   Dataverse environment, exactly as it would for any Dynamics 365 client application. We are not a
@@ -130,9 +134,9 @@ in the project changelog. Continued use of the App after an update constitutes a
 revised policy.</p>
 
 <h3>8. Contact</h3>
-<p>Questions about this policy can be directed to the developer via our support channels or the
-GitHub repository
-(<code>https://github.com/mykal2709/DynamicDynamoKit</code>).</p>
+<p>Questions about this policy can be directed through the
+<a href="support.html">Dynamic Dynamo Kit support page</a>.</p>
+</main>
 
 <footer>
   — Mike Schweitzer, Developer<br><br>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A safer What-If-first workflow for Dynamics 365 and Dataverse administration.">
+<title>Why What-If Should Be First - Dynamic Dynamo Kit</title><link rel="stylesheet" href="style.css"></head>
+<body class="docs-page"><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
+<nav aria-label="Main navigation"><a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a><a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a></nav></header>
+<main id="main-content"><article class="article">
+  <nav class="article-nav"><a href="blog.html">&larr; All articles</a></nav>
+  <p class="article-meta">SAFETY &middot; 6 MIN READ</p>
+  <h1>Why What-If should be the first step, not the last check</h1>
+  <p class="lead">A preview is most useful before a change feels inevitable. It creates room to
+    investigate assumptions, confirm scope, and get approval while no data has been touched.</p>
+  <h2>The dangerous shortcut</h2>
+  <p>Administrative work often begins with a reasonable request: give this user the same access as
+    that user, match a test team to production, reassign a former employee's records, or import a
+    corrected CSV. The risk comes from treating the request as proof that the proposed change is
+    correct. Environment selection, inherited roles, ownership scope, duplicate rows, and stale
+    assumptions can all expand the impact.</p>
+  <h2>A four-stage workflow</h2>
+  <ol><li><strong>Investigate.</strong> Use read-only reports to establish current state.</li>
+    <li><strong>Preview.</strong> Enable What-If and run the exact intended operation.</li>
+    <li><strong>Review.</strong> Check environment, identities, counts, conflicts, and exceptions with the requester or owner.</li>
+    <li><strong>Execute and verify.</strong> Turn off preview only when authorized, make the change, then rerun the report.</li></ol>
+  <h2>What What-If does not replace</h2>
+  <p>A preview does not replace a sandbox, Dataverse backup, change ticket, least-privilege account,
+    or human review. A tool can show what it intends to do, but only the administrator knows whether
+    the request is appropriate for that organization.</p>
+  <div class="tip"><strong>Practical habit:</strong> capture or export the preview and attach it to
+    the change record. After execution, capture the same report again. The pair documents intent and outcome.</div>
+  <h2>Where to apply the pattern</h2>
+  <p>Dynamic Dynamo Kit uses preview and confirmation across onboarding, offboarding, access copy,
+    mass reassignment, team-role synchronization, bulk import, environment promotion, and other
+    supported writes. The CLI also refuses mutating commands unless you provide
+    <code>--confirm</code> or <code>--what-if</code>.</p>
+  <div class="article-cta">Follow the <a href="quick-start.html">quick start</a> to connect a sandbox
+    and run your first read-only report.</div>
+</article></main><footer class="site-footer">
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Mike Schweitzer.</p></div>
+  <nav aria-label="Legal and support"><a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a><a href="support.html">Support</a></nav>
+  <p class="disclaimer">Independent third-party product; not affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft.</p>
+</footer></body></html>

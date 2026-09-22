@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Detailed Dynamic Dynamo Kit 2.3.3 user manual for Dynamics 365 and Dataverse administrators.">
+<title>User Manual - Dynamic Dynamo Kit</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="docs-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
+  <nav aria-label="Main navigation"><a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a><a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a></nav>
+</header>
+<main id="main-content" class="docs-shell">
+  <nav class="docs-nav" aria-label="Manual sections">
+    <strong>User manual</strong><a href="#safety">Safety model</a><a href="#users">Users</a>
+    <a href="#org">Org</a><a href="#governance">Governance</a><a href="#data-quality">Data Quality</a>
+    <a href="#operations">Operations</a><a href="#settings">Settings</a><a href="#licensing">Licensing</a>
+    <a href="#builders">Builders</a><a href="#cli">Command line</a><a href="#support">Support</a>
+  </nav>
+  <article class="docs-content">
+    <p class="eyebrow">Dynamic Dynamo Kit 2.3.3</p>
+    <h1>User manual</h1>
+    <p class="lead">A practical reference for the Windows desktop app and customer-facing command
+      line. Labels match version 2.3.3.</p>
+
+    <h2 id="safety">Safety model</h2>
+    <ul>
+      <li><strong>What-If Mode:</strong> supported write commands receive preview mode and do not write changes.</li>
+      <li><strong>Confirmation:</strong> destructive or mutating operations require deliberate confirmation.</li>
+      <li><strong>Undo:</strong> supported recent actions can be reversed when the required recovery data still exists. Some operations are not reversible.</li>
+      <li><strong>Exports:</strong> report grids can be exported to CSV or XLSX where an export control is shown.</li>
+      <li><strong>Your responsibility:</strong> use a sandbox and keep independent Dataverse backups. Local snapshots and Undo are safety nets, not guarantees.</li>
+    </ul>
+    <div class="warning"><strong>Before production changes:</strong> verify the selected environment,
+      keep What-If enabled for the first pass, review every affected record, and confirm you have
+      the required Dataverse permissions and backup strategy.</div>
+
+    <h2 id="users">Users</h2>
+    <div class="table-scroll" role="region" tabindex="0" aria-label="Users workflows"><table class="feature-table">
+      <thead><tr><th>Workflow</th><th>How to use it</th><th>Tier and safety</th></tr></thead>
+      <tbody>
+        <tr><td>User Access &gt; Roles</td><td>Find a user, select <strong>Load roles</strong>, then review or use <strong>Add role</strong> / <strong>Remove selected role</strong>.</td><td><span class="tier">Free surface</span> Writes need role-assignment privileges and confirmation.</td></tr>
+        <tr><td>User Access &gt; Teams</td><td>Find a user, <strong>Load teams</strong>, then add or remove team membership.</td><td><span class="tier">Free surface</span> Writes need team-membership privileges.</td></tr>
+        <tr><td>User Access &gt; Business Units</td><td>Use <strong>Load BUs</strong>, choose the destination, then <strong>Change BU</strong>.</td><td><span class="tier">Free surface</span> Business-unit changes can have wide access effects; preview and review first.</td></tr>
+        <tr><td>App Profiles / Chat Queues</td><td>Load a profile or queue and add or remove users.</td><td>Requires the corresponding membership privileges.</td></tr>
+        <tr><td>Onboard User</td><td>Set the user, business unit, roles, teams, and queues. Run <strong>What-If Preview</strong>, review, then <strong>Apply</strong>.</td><td><span class="tier pro">Pro</span></td></tr>
+        <tr><td>Copy Access</td><td>Choose source and target users, review the access to copy, then apply.</td><td><span class="tier pro">Pro</span> Preview before writing.</td></tr>
+        <tr><td>Mass Reassign</td><td>Choose source and target users plus the entity. Preview affected counts, then apply.</td><td><span class="tier pro">Pro</span> Requires ownership/write privileges.</td></tr>
+        <tr><td>Offboard</td><td>Search for the person across environments, review discovered access and records, then offboard only the selected items.</td><td><span class="tier pro">Pro</span> Use What-If and verify every environment.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="org">Org</h2>
+    <div class="table-scroll" role="region" tabindex="0" aria-label="Organization workflows"><table class="feature-table">
+      <thead><tr><th>Workflow</th><th>Purpose</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Teams &gt; Create</td><td>Create a business unit or team under the correct parent business unit.</td><td>Requires organization administration privileges.</td></tr>
+        <tr><td>Team Roles</td><td>Load a team's roles, then add or remove an assignment.</td><td>Writes follow confirmation and What-If behavior.</td></tr>
+        <tr><td>Team Members</td><td>List membership and optionally compare teams between environments.</td><td>Comparison is read-only.</td></tr>
+        <tr><td>Match to Prod</td><td>Preview role differences against production, review, then apply selected synchronization.</td><td>Confirm source and target before applying.</td></tr>
+        <tr><td>Role Reports</td><td>Run <strong>All Team Roles</strong>, <strong>Users by Role</strong>, or <strong>Teams by Role</strong>; filter and export.</td><td><span class="tier">Free reporting</span> Inline assignment controls are writes.</td></tr>
+      </tbody>
+    </table></div>
+    <img class="doc-image" src="assets/screenshots/07-role-reports.png" alt="Org Role Reports Users by Role screen">
+
+    <h2 id="governance">Governance <span class="tier pro">Pro</span></h2>
+    <div class="table-scroll" role="region" tabindex="0" aria-label="Governance workflows"><table class="feature-table">
+      <thead><tr><th>Area</th><th>Purpose</th><th>Output and safety</th></tr></thead>
+      <tbody>
+        <tr><td>Privileges &gt; By Role</td><td>Inspect privilege depth by role and table; compare or grant.</td><td>Compare is read-only. Grant is a confirmed write.</td></tr>
+        <tr><td>Privileges &gt; Lookup</td><td>Find who holds a privilege and where it is granted.</td><td>Read-only investigation.</td></tr>
+        <tr><td>Role Diff</td><td>Compare a role between two environments.</td><td>Read-only differences that can be exported.</td></tr>
+        <tr><td>Risk</td><td>Review security score, risky privileges, authentication/service-account hygiene, and unused access.</td><td>Produces reviewable findings and recommendations; it does not imply automatic cleanup.</td></tr>
+        <tr><td>Monitoring &gt; Snapshots &amp; Changes</td><td>Take local snapshots and compare two points in time.</td><td>Exportable change history.</td></tr>
+        <tr><td>Monitoring &gt; Compliance</td><td>Run evidence-friendly compliance checks.</td><td>Review and export the report.</td></tr>
+        <tr><td>Monitoring &gt; Alert Rules</td><td>Configure, test, and run governance alerts.</td><td>Test the configuration before relying on notifications.</td></tr>
+      </tbody>
+    </table></div>
+    <img class="doc-image" src="assets/screenshots/05-governance-risk.png" alt="Governance Risk screen with security score and findings filters">
+
+    <h2 id="data-quality">Data Quality</h2>
+    <h3>Duplicate Radar</h3>
+    <p>Select <strong>Run Org Radar</strong> to rank likely duplicate records, or find a contact and
+      select <strong>Find Duplicates of Selected</strong>. Radar is an investigative workflow and
+      does not merge records.</p>
+    <h3>Find &amp; Merge <span class="tier pro">Pro</span></h3>
+    <ol>
+      <li>In Simple mode, select <strong>Next</strong>, set maximum records and minimum confidence, then scan.</li>
+      <li>Filter High or Medium confidence clusters and inspect why each survivor is recommended.</li>
+      <li>Select records, open <strong>Review / merge selected</strong>, resolve field conflicts, and confirm the survivor.</li>
+      <li>Select <strong>Perform merge</strong> only after the review is complete.</li>
+    </ol>
+    <p>Advanced mode adds saved match profiles. <strong>Auto-merge rules</strong> control minimum
+      confidence, tolerated conflicts, protected fields, blank filling, and cluster size per
+      environment. Protected or conflicting records can be forced into manual review. A recurring
+      scan exports findings and does not automatically merge them.</p>
+    <div class="warning"><strong>Merges can be irreversible.</strong> Keep a Dataverse backup.
+      Undo is only available when the app explicitly reports that the retained pre-merge recovery
+      data supports it.</div>
+    <img class="doc-image" src="assets/screenshots/03-find-merge.png" alt="Find and Merge screen showing scan, review, auto-merge rules, scheduling, and export controls">
+
+    <h2 id="operations">Operations</h2>
+    <div class="table-scroll" role="region" tabindex="0" aria-label="Operations workflows"><table class="feature-table">
+      <thead><tr><th>Workflow</th><th>Purpose</th><th>Tier and safety</th></tr></thead>
+      <tbody>
+        <tr><td>Bulk Import</td><td>Load a CSV, run <strong>Validate / Preview</strong>, review the preview, then apply.</td><td><span class="tier pro">Pro</span> Validate before every import.</td></tr>
+        <tr><td>Promote</td><td>Compare configuration between source and target environments, then apply reviewed changes.</td><td><span class="tier pro">Pro</span> Verify source/target direction.</td></tr>
+        <tr><td>Insights &gt; Hygiene</td><td>Find stale security objects, unused objects, and ownership issues.</td><td><span class="tier pro">Pro</span> Review/export.</td></tr>
+        <tr><td>Insights &gt; Effective Access</td><td>Calculate a user's direct and inherited permissions.</td><td><span class="tier pro">Pro</span> Read-only.</td></tr>
+        <tr><td>Insights &gt; Compare Users</td><td>Compare two access footprints side by side.</td><td><span class="tier pro">Pro</span> Read-only.</td></tr>
+        <tr><td>Insights &gt; Env Drift</td><td>Detect configuration differences across environments.</td><td><span class="tier pro">Pro</span> Read-only/export.</td></tr>
+        <tr><td>Licensing &gt; Overview / Waste Report</td><td>Review Microsoft license pools, assignments, availability, and likely cleanup candidates.</td><td><span class="tier pro">Pro</span> Reports do not automatically reclaim seats.</td></tr>
+        <tr><td>Undo</td><td>Review recent actions, select a reversible action, and use <strong>Undo Selected</strong>.</td><td>Only actions reported as reversible can be undone. Export or clear history as needed.</td></tr>
+      </tbody>
+    </table></div>
+    <img class="doc-image" src="assets/screenshots/04-effective-access.png" alt="Operations Insights Effective Access screen">
+
+    <h2 id="settings">Settings</h2>
+    <ul>
+      <li><strong>Environments:</strong> add, edit, remove, test, or discover environment connections.</li>
+      <li><strong>Profiles:</strong> create and switch local configuration profiles. Switching disconnects current sessions.</li>
+      <li><strong>Appearance:</strong> set theme, branding, logo, title, and subtitle.</li>
+      <li><strong>Audit and notifications:</strong> configure local audit behavior, optional SharePoint, Log Analytics, SQL, or SMTP destinations that you control.</li>
+      <li><strong>Configuration portability:</strong> export or import a configuration ZIP. Import replaces existing configuration and requires confirmation.</li>
+      <li><strong>Scheduling:</strong> set report output location and schedule, then register the scheduled task. What-If does not register it.</li>
+      <li><strong>Offline Mode:</strong> disable update checks. Connected Dataverse operations still require network access.</li>
+    </ul>
+
+    <h2 id="licensing">Dynamic Dynamo Kit licensing</h2>
+    <p>The Settings license panel shows <strong>Free</strong>, <strong>Pro (Trial)</strong>, or
+      <strong>Pro</strong>. Select <strong>Buy a Pro license</strong> to open Lemon Squeezy,
+      enter the issued key, and select <strong>Activate</strong>. To move an activation, select
+      <strong>Deactivate</strong> on the current device first.</p>
+    <p>If online validation cannot complete, Pro may be locked for the session. Free-tier features
+      remain available. Microsoft Store distributes the free app but does not sell, bill, refund, or
+      support the separate Pro transaction.</p>
+    <img class="doc-image" src="assets/screenshots/08-license.png" alt="Settings license section with activate, deactivate, and Buy a Pro license controls">
+
+    <h2 id="builders">Builders</h2>
+    <p>The <strong>Builders</strong> tab contains focused helpers for assembling Dataverse and
+      automation inputs without hand-writing every expression:</p>
+    <ul>
+      <li><strong>Query Builder</strong> for constructing data queries.</li>
+      <li><strong>Kusto Builder</strong> for KQL-oriented query text.</li>
+      <li><strong>Flow Condition Builder</strong> for Power Automate condition expressions.</li>
+      <li><strong>Connection String Builder</strong> for connection configuration.</li>
+    </ul>
+    <p>Review generated text before using it, and never paste client secrets or certificate
+      passwords into tickets, screenshots, or public documentation.</p>
+
+    <h2 id="cli">Command-line interface</h2>
+    <p>The included CLI supports setup, connections, reports, changes, exports, and scheduled jobs.
+      Mutating commands require <code>--confirm</code> or <code>--what-if</code>; otherwise no
+      action is performed. Reports can export CSV files to the local exports directory. Use
+      <code>--what-if</code> first for any command that may change data.</p>
+
+    <h2 id="support">Support and issue reporting</h2>
+    <p>Include the app version, Windows version, affected tab, exact error, authentication mode,
+      whether What-If was enabled, and sanitized reproduction steps. Never post license keys,
+      client secrets, access tokens, customer data, or tenant-specific confidential information.</p>
+    <div class="callout"><strong>Support expectations:</strong> Dynamic Dynamo Kit is independently
+      developed and supported by one person outside regular working hours. Support is best effort,
+      response times vary, and immediate replies are not guaranteed. Licensing and installation
+      problems are prioritized. Use the <a href="support.html">support page</a> for safe issue-reporting guidance.</div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Mike Schweitzer.</p></div>
+  <nav aria-label="Legal and support"><a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a><a href="support.html">Support</a></nav>
+  <p class="disclaimer">Independent third-party product; not affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft.</p>
+</footer>
+</body>
+</html>

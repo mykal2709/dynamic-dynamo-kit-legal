@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Captioned Dynamic Dynamo Kit walkthroughs and ready-to-record tutorial scripts.">
+<title>Tutorials - Dynamic Dynamo Kit</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="docs-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
+  <nav aria-label="Main navigation"><a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a><a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a></nav>
+</header>
+<main id="main-content" class="docs-shell">
+  <nav class="docs-nav" aria-label="Tutorial sections">
+    <strong>Tutorials</strong><a href="#overview">Product overview</a><a href="#connect">Install and connect</a>
+    <a href="#duplicates">Duplicate cleanup</a><a href="#access">Effective access</a>
+    <a href="#governance">Governance review</a><a href="#recording">Recording checklist</a>
+  </nav>
+  <article class="docs-content">
+    <p class="eyebrow">Watch and record</p><h1>Video tutorials</h1>
+    <p class="lead">Start with the captioned product overview, then use the short, ready-to-record
+      scripts below for focused walkthroughs. The scripts avoid customer data and production writes.</p>
+
+    <section id="overview" class="tutorial-card">
+      <p class="article-meta">CAPTIONED OVERVIEW &middot; ABOUT 40 SECONDS &middot; NO AUDIO</p>
+      <h2>Dynamic Dynamo Kit feature tour</h2>
+      <video aria-label="Dynamic Dynamo Kit captioned feature tour" controls preload="metadata" poster="assets/screenshots/01-roles.png">
+        <source src="assets/videos/dynamic-dynamo-kit-demo.mp4" type="video/mp4">
+        Your browser does not support embedded video. <a href="assets/videos/dynamic-dynamo-kit-demo.mp4">Download the MP4</a>.
+      </video>
+      <p><a class="text-link" href="assets/videos/dynamic-dynamo-kit-demo.mp4" download>Download the captioned overview MP4 &rarr;</a></p>
+      <details class="script"><summary>Text transcript</summary>
+        <p>Dynamic Dynamo Kit is a native Dynamics 365 and Dataverse administration app. The tour
+          shows Users and Roles, Duplicate Radar, Find and Merge, Effective Access, Governance
+          Risk, Microsoft license overview, Role Reports, and Pro activation. The Free tier
+          includes core workflows; screens marked Pro require an active trial or Pro license.</p>
+      </details>
+    </section>
+
+    <section class="tutorial-card">
+      <p class="article-meta">CAPTIONED TUTORIAL &middot; ABOUT 25 SECONDS &middot; NO AUDIO</p>
+      <h2>Understand user access</h2>
+      <video aria-label="Captioned user access tutorial" controls preload="metadata" poster="assets/screenshots/04-effective-access.png">
+        <source src="assets/videos/tutorial-access-review.mp4" type="video/mp4">
+        <a href="assets/videos/tutorial-access-review.mp4">Download the user access tutorial</a>.
+      </video>
+      <details class="script"><summary>Text transcript</summary><p>Find the user and load direct
+        roles, teams, and business-unit context. Calculate effective access to combine direct and
+        inherited permissions. Use role reports to review and export the evidence.</p></details>
+    </section>
+    <section class="tutorial-card">
+      <p class="article-meta">CAPTIONED TUTORIAL &middot; ABOUT 20 SECONDS &middot; NO AUDIO</p>
+      <h2>Investigate duplicate records</h2>
+      <video aria-label="Captioned duplicate investigation tutorial" controls preload="metadata" poster="assets/screenshots/02-duplicate-radar.png">
+        <source src="assets/videos/tutorial-duplicate-cleanup.mp4" type="video/mp4">
+        <a href="assets/videos/tutorial-duplicate-cleanup.mp4">Download the duplicate cleanup tutorial</a>.
+      </video>
+      <details class="script"><summary>Text transcript</summary><p>Begin with Duplicate Radar to
+        rank likely matches without changing data. In Find and Merge, review confidence, survivor
+        reasoning, and every conflict before confirming a merge.</p></details>
+    </section>
+    <section class="tutorial-card">
+      <p class="article-meta">CAPTIONED TUTORIAL &middot; ABOUT 25 SECONDS &middot; NO AUDIO</p>
+      <h2>Run a governance review</h2>
+      <video aria-label="Captioned governance review tutorial" controls preload="metadata" poster="assets/screenshots/05-governance-risk.png">
+        <source src="assets/videos/tutorial-governance-review.mp4" type="video/mp4">
+        <a href="assets/videos/tutorial-governance-review.mp4">Download the governance tutorial</a>.
+      </video>
+      <details class="script"><summary>Text transcript</summary><p>Run all governance risk checks,
+        filter Privileges, Authentication, and Unused access, trace access sources with Effective
+        Access, and review Microsoft license posture before exporting findings.</p></details>
+    </section>
+
+    <h2 id="connect">Tutorial 1: Install and connect safely</h2>
+    <p class="article-meta">Target length: 4-6 minutes</p>
+    <ol>
+      <li>Show the public Microsoft Store listing and install the app.</li>
+      <li>Open Settings and add a sandbox environment with its full URL.</li>
+      <li>Explain Interactive/MFA, Service Principal, and Certificate authentication.</li>
+      <li>Use <strong>Test connection</strong>, save, and select <strong>Connect</strong>.</li>
+      <li>Turn on What-If Mode and run <strong>Users &gt; User Access &gt; Roles</strong>.</li>
+    </ol>
+    <details class="script"><summary>Read the narration script</summary>
+      <p>"In this tutorial, we will install Dynamic Dynamo Kit and connect a sandbox without making
+        any Dataverse changes. The app is free to install from Microsoft Store. On first launch,
+        open Settings and add the full environment URL. Interactive mode is the right choice for a
+        normal administrator who uses MFA. Service principal and certificate modes are intended for
+        configured app registrations. Test the connection before saving. Once connected, enable
+        What-If Mode and open Users, User Access, Roles. Find a user and load roles. You have now
+        verified the connection with a read-only workflow."</p>
+    </details>
+
+    <h2 id="duplicates">Tutorial 2: Investigate and merge duplicates</h2>
+    <p class="article-meta">Target length: 6-8 minutes &middot; Pro merge workflow</p>
+    <ol>
+      <li>Use <strong>Duplicate Radar</strong> to rank likely duplicates without changing records.</li>
+      <li>Open <strong>Find &amp; Merge</strong>, explain maximum records and confidence filters, then scan.</li>
+      <li>Review matched fields, conflicts, survivor recommendation, and protected-field behavior.</li>
+      <li>Open the merge review but stop before a production write; demonstrate in a sandbox only.</li>
+      <li>Show auto-merge rules and explain that recurring scans export CSV and never merge automatically.</li>
+    </ol>
+    <img class="doc-image" src="assets/screenshots/02-duplicate-radar.png" alt="Duplicate Radar screen with organization-wide and contact-specific searches">
+    <details class="script"><summary>Read the narration script</summary>
+      <p>"Duplicate cleanup should begin with investigation, not merging. Duplicate Radar is the
+        read-only starting point. It shows records with likely duplicates and lets you inspect one
+        contact. In Pro, Find and Merge adds confidence filters, match profiles, survivor
+        recommendations, and conflict review. Before you merge, verify the environment, open each
+        candidate, review the recommended survivor, and resolve every field conflict. Protected
+        fields can force manual review. Scheduled scans create findings for review; they do not
+        perform unattended merges. Always keep an independent Dataverse backup."</p>
+    </details>
+
+    <h2 id="access">Tutorial 3: Explain a user's effective access</h2>
+    <p class="article-meta">Target length: 4-5 minutes &middot; Pro</p>
+    <ol>
+      <li>Start in <strong>Users &gt; User Access</strong> and review direct roles and teams.</li>
+      <li>Open <strong>Operations &gt; Insights &gt; Effective Access</strong>.</li>
+      <li>Browse for the same user and select <strong>Show effective access</strong>.</li>
+      <li>Filter by table and explain direct versus inherited permissions.</li>
+      <li>Export the result for an access review.</li>
+    </ol>
+    <details class="script"><summary>Read the narration script</summary>
+      <p>"A direct role list does not always explain what a person can really do because team
+        membership adds inherited access. Start with User Access to see the direct assignments.
+        Then open Effective Access, choose the same person, and calculate their combined
+        permissions. Filter to the table under investigation and use the source information to
+        trace where the access came from. The result is read-only and can be exported for review."</p>
+    </details>
+
+    <h2 id="governance">Tutorial 4: Run a governance review</h2>
+    <p class="article-meta">Target length: 5-7 minutes &middot; Pro</p>
+    <ol>
+      <li>Open <strong>Governance &gt; Risk</strong> and run all checks.</li>
+      <li>Explain the score, grade, passed rules, and categories.</li>
+      <li>Filter Privileges, Authentication, and Unused access separately.</li>
+      <li>Export findings; explain that findings require human review before cleanup.</li>
+      <li>Show <strong>Monitoring &gt; Snapshots &amp; Changes</strong> and the compliance report.</li>
+    </ol>
+    <details class="script"><summary>Read the narration script</summary>
+      <p>"The Risk screen combines several security checks into one review. Run all checks, then
+        use the category filters instead of treating the score as the whole story. Privileges can
+        reveal broad access, Authentication highlights sign-in and service-account hygiene, and
+        Unused access identifies cleanup candidates. Export the findings and validate each item
+        with its owner. The toolkit reports evidence; it does not replace your organization's
+        approval process. Snapshots and Changes help you compare posture over time."</p>
+    </details>
+
+    <h2 id="recording">Safe recording checklist</h2>
+    <ul>
+      <li>Use a demo or sandbox tenant with synthetic names and records.</li>
+      <li>Hide tenant URLs, email addresses, IDs, tokens, secrets, and license keys.</li>
+      <li>Use a 1920×1080 capture and increase Windows scaling if UI text is hard to read.</li>
+      <li>Keep each video focused on one outcome and under ten minutes.</li>
+      <li>Enable What-If and avoid real production writes while recording.</li>
+      <li>Add captions and put the Store, manual, privacy, and support links in the description.</li>
+    </ul>
+    <div class="callout"><strong>Choose your format:</strong> use the four short captioned
+      walkthroughs for a quick visual introduction. The longer scripts are provided for anyone
+      who wants to record a narrated demonstration in a sanitized demo tenant.</div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Mike Schweitzer.</p></div>
+  <nav aria-label="Legal and support"><a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a><a href="support.html">Support</a></nav>
+  <p class="disclaimer">Independent third-party product; not affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft.</p>
+</footer>
+</body>
+</html>

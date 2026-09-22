@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Install Dynamic Dynamo Kit, connect your first Dataverse environment, and run a safe first report.">
+<title>Quick Start - Dynamic Dynamo Kit</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="docs-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
+  <nav aria-label="Main navigation"><a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a><a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a></nav>
+</header>
+<main id="main-content" class="docs-shell">
+  <nav class="docs-nav" aria-label="Quick start sections">
+    <strong>Quick start</strong>
+    <a href="#install">1. Install</a><a href="#connect">2. Connect</a>
+    <a href="#permissions">3. Check permissions</a><a href="#what-if">4. Use What-If</a>
+    <a href="#first-report">5. Run a report</a><a href="#pro">6. Trial and Pro</a>
+    <a href="#troubleshooting">Troubleshooting</a>
+  </nav>
+  <article class="docs-content">
+    <p class="eyebrow">Version 2.3.3</p>
+    <h1>Quick start</h1>
+    <p class="lead">Go from installation to a verified, read-only access report. Plan about ten minutes
+      if you already know your Dataverse environment URL.</p>
+    <div class="tip"><strong>Safest first session:</strong> connect to a sandbox, leave What-If Mode
+      on, and start with a report before trying any operation that changes data.</div>
+
+    <ol class="step-list">
+      <li id="install"><h2>Install from Microsoft Store</h2>
+        <p>Open the <a href="https://apps.microsoft.com/detail/9PPPSZWZ87WM">Dynamic Dynamo Kit Store listing</a>,
+          select <strong>Get</strong> or <strong>Install</strong>, then launch the app. The Free tier is included.</p></li>
+      <li id="connect"><h2>Add and connect an environment</h2>
+        <p>On first launch, open <strong>Settings</strong> if the setup prompt is not already visible.
+          Add a recognizable environment name and its full URL, for example
+          <code>https://yourorg.crm.dynamics.com</code>. Do not include <code>/main.aspx</code>.</p>
+        <p>Choose an authentication mode:</p>
+        <ul>
+          <li><strong>Interactive/MFA</strong> for normal user sign-in and Conditional Access prompts.</li>
+          <li><strong>Service Principal</strong> for an unattended app registration with a client secret.</li>
+          <li><strong>Certificate</strong> for an app registration configured with a certificate.</li>
+        </ul>
+        <p>Select <strong>Test connection</strong>, save Settings, then use the main
+          <strong>Connect</strong> button. On-premises deployments can use the app's supported
+          IFD/AD connection options when configured for that environment.</p></li>
+      <li id="permissions"><h2>Confirm the account has enough access</h2>
+        <p>The toolkit uses the permissions of the account you connect. Read-only reports need read
+          privileges for the records they inspect. Role, team, user, import, merge, or ownership
+          changes need the matching Dataverse administrative privileges.</p>
+        <p>If sign-in succeeds but the app returns 401 or 403, confirm the account has a Dataverse
+          security role and an appropriate Microsoft license or application-user record.</p></li>
+      <li id="what-if"><h2>Turn on What-If Mode</h2>
+        <p>Enable the global <strong>What-If Mode</strong> before exploring write workflows.
+          Supported changes are previewed instead of written. Read each preview and confirmation;
+          What-If reduces risk but does not replace a sandbox, a backup, or review.</p></li>
+      <li id="first-report"><h2>Run a safe first report</h2>
+        <p>Open <strong>Users &gt; User Access &gt; Roles</strong>. Choose the environment, find a
+          user, and select <strong>Load roles</strong>. Review the role, source, and business-unit
+          columns. This is a useful connection and permission check without changing Dataverse.</p>
+        <img class="doc-image" src="assets/screenshots/01-roles.png" alt="Users, User Access, Roles screen with Load roles and role assignment controls">
+        <p>You can also try <strong>Org &gt; Role Reports &gt; Users by Role</strong> and export the
+          report for review.</p></li>
+      <li id="pro"><h2>Evaluate the Pro trial</h2>
+        <p>The app labels its current tier as <strong>Free</strong>, <strong>Pro (Trial)</strong>,
+          or <strong>Pro</strong>. Pro unlocks bulk import, promotion, governance, onboarding,
+          offboarding, mass reassign, Find &amp; Merge, insights, and licensing workflows.</p>
+        <p>To purchase, use <strong>Buy a Pro license</strong> in Settings. Checkout is handled by
+          Lemon Squeezy, not Microsoft Store. Enter the issued key and select
+          <strong>Activate</strong>. Monthly and annual Pro plans allow two device activations;
+          Team allows ten.</p></li>
+    </ol>
+
+    <h2 id="troubleshooting">Connection troubleshooting</h2>
+    <div class="table-scroll" role="region" tabindex="0" aria-label="Connection troubleshooting table"><table>
+      <thead><tr><th>Problem</th><th>What to check</th></tr></thead>
+      <tbody>
+        <tr><td>MFA or Conditional Access prompt fails</td><td>Use Interactive/MFA. For unattended work, use a properly configured service principal or certificate.</td></tr>
+        <tr><td>Environment not found</td><td>Copy the Environment URL from Power Platform admin center; remove trailing paths.</td></tr>
+        <tr><td>401 Unauthorized</td><td>Assign the account at least one Dataverse security role.</td></tr>
+        <tr><td>403 Forbidden</td><td>Check the user's license or the service principal's application-user record.</td></tr>
+        <tr><td>Timeout or DNS error</td><td>Check VPN, proxy, firewall, and whether the URL opens from the same computer.</td></tr>
+        <tr><td>Pro features locked</td><td>Open Settings and review the tier, trial, key, network access, and license status.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="article-cta"><strong>Next:</strong> use the <a href="user-manual.html">detailed user manual</a>
+      for every tab, or follow a <a href="tutorials.html">captioned tutorial</a>.</div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Mike Schweitzer.</p></div>
+  <nav aria-label="Legal and support"><a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a><a href="support.html">Support</a></nav>
+  <p class="disclaimer">Independent third-party product; not affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft.</p>
+</footer>
+</body>
+</html>

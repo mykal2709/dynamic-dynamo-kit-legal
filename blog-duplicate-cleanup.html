@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A deliberate workflow for detecting, reviewing, and merging duplicate Dataverse records.">
+<title>A Deliberate Duplicate-Cleanup Workflow - Dynamic Dynamo Kit</title><link rel="stylesheet" href="style.css"></head>
+<body class="docs-page"><a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
+<nav aria-label="Main navigation"><a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a><a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a></nav></header>
+<main id="main-content"><article class="article">
+  <nav class="article-nav"><a href="blog.html">&larr; All articles</a></nav>
+  <p class="article-meta">DATA QUALITY &middot; 8 MIN READ</p>
+  <h1>A deliberate duplicate-cleanup workflow</h1>
+  <p class="lead">Duplicate detection is a probability problem. Merging is a data-governance
+    decision. Treating those as separate stages produces safer, more explainable cleanup.</p>
+  <h2>1. Start broad and read-only</h2>
+  <p>Use Duplicate Radar to see which records have the most likely duplicates, or investigate one
+    contact. This establishes the size and shape of the problem without modifying any record.</p>
+  <h2>2. Define what a match means</h2>
+  <p>Names, email addresses, telephone numbers, and business identifiers do not have equal
+    reliability. A reusable match profile should state which fields are exact or fuzzy, how much
+    each field contributes, the minimum confidence, and which fields are required. Test profiles
+    on a sandbox sample before applying them to a larger dataset.</p>
+  <h2>3. Separate candidates from decisions</h2>
+  <p>A high score is not approval to merge. Open both records, verify relationships and activity,
+    review conflicting values, and choose the survivor deliberately. Record why the survivor is
+    authoritative instead of defaulting to the newest or oldest record without context.</p>
+  <img class="doc-image" src="assets/screenshots/03-find-merge.png" alt="Find and Merge candidate review screen">
+  <h2>4. Put limits around automation</h2>
+  <p>Auto-merge rules should be environment-specific. A sandbox can tolerate more experimentation
+    than production. Use minimum confidence, maximum conflict count, protected fields, blank-fill
+    policy, and maximum cluster size to force ambiguous cases into manual review.</p>
+  <div class="warning"><strong>Do not confuse scheduling with unattended merging.</strong> Dynamic
+    Dynamo Kit recurring scans export CSV findings for review; they do not automatically merge records.</div>
+  <h2>5. Keep evidence and recovery options</h2>
+  <p>Export scan results and merge decisions. Keep an independent Dataverse backup before merges.
+    If the toolkit reports an action as undoable, that is an additional safety net, not a substitute
+    for a restore point.</p>
+  <div class="article-cta">See the full <a href="user-manual.html#data-quality">Data Quality manual</a>
+    and the <a href="tutorials.html#duplicates">duplicate-cleanup tutorial script</a>.</div>
+</article></main><footer class="site-footer">
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Mike Schweitzer.</p></div>
+  <nav aria-label="Legal and support"><a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a><a href="support.html">Support</a></nav>
+  <p class="disclaimer">Independent third-party product; not affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft.</p>
+</footer></body></html>
