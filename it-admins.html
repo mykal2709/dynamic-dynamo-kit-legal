@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Deploy Dynamic Dynamo Kit to managed Windows devices with Microsoft Intune or winget.">
+<title>For IT Admins - Dynamic Dynamo Kit</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="docs-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">Dynamic <span class="accent">Dynamo</span> Kit</a>
+  <nav aria-label="Main navigation"><a href="quick-start.html">Quick start</a><a href="user-manual.html">Manual</a><a href="tutorials.html">Tutorials</a><a href="blog.html">Blog</a></nav>
+</header>
+<main id="main-content" class="docs-shell">
+  <nav class="docs-nav" aria-label="IT admin sections">
+    <strong>For IT admins</strong>
+    <a href="#intune">Deploy with Intune</a><a href="#winget">Install with winget</a>
+    <a href="#requirements">Requirements</a><a href="#blocked">If Store delivery is blocked</a>
+    <a href="#licensing">Licensing</a><a href="#references">Microsoft references</a>
+  </nav>
+  <article class="docs-content">
+    <p class="eyebrow">Version 2.3.4</p>
+    <h1>Managed deployment for IT admins</h1>
+    <p class="lead">Dynamic Dynamo Kit is published as a Microsoft Store MSIX app
+      (Store ID <code>9PPPSZWZ87WM</code>, publisher <strong>Mykal2709</strong>). Deploy the Store
+      app directly; do not download and repackage the MSIX.</p>
+
+    <h2 id="intune">Deploy with Microsoft Intune (recommended)</h2>
+    <ol>
+      <li>In the <a href="https://intune.microsoft.com/">Microsoft Intune admin center</a>, go to
+        <strong>Apps &rarr; All apps &rarr; Create</strong>.</li>
+      <li>Select <strong>Microsoft Store app (new)</strong>.</li>
+      <li>Search for <strong>Dynamic Dynamo Kit</strong> (Store ID <code>9PPPSZWZ87WM</code>) and select
+        the listing published by <strong>Mykal2709</strong>. Confirm the app identity before adding it.</li>
+      <li>Complete <strong>App information</strong>, review the app details, and configure any available
+        install-behavior options.</li>
+      <li>Under <strong>Assignments</strong>, target a small pilot group first:
+        <ul>
+          <li><strong>Available for enrolled devices</strong> lets users install it from Company Portal.</li>
+          <li><strong>Required</strong> installs it automatically on targeted devices.</li>
+        </ul></li>
+      <li>Select <strong>Review + create</strong>.</li>
+      <li>Check installation status in Intune, confirm the app launches, then expand the assignment.</li>
+    </ol>
+    <div class="tip"><strong>Updates:</strong> Intune keeps Store apps current automatically. You do not
+      upload a new package for each release.</div>
+
+    <h2 id="winget">Install with winget</h2>
+    <p>For scripted installs, or environments that use winget instead of Intune:</p>
+    <pre><code>winget install --id 9PPPSZWZ87WM --source msstore --accept-package-agreements --accept-source-agreements</code></pre>
+    <ul>
+      <li>The two <code>--accept-*</code> flags prevent agreement prompts during unattended runs.</li>
+      <li>The <code>msstore</code> source must be enabled (check with <code>winget source list</code>).
+        Some organizations disable it by policy.</li>
+      <li>winget installs per user. Run it in the target user's context, not as SYSTEM.</li>
+      <li>Updates arrive through the Store or with <code>winget upgrade --id 9PPPSZWZ87WM</code>.</li>
+    </ul>
+
+    <h2 id="requirements">Requirements and rollout checks</h2>
+    <ul>
+      <li>x64 Windows 10 version 2004 (build 19041) or later, including Windows 11.</li>
+      <li>Microsoft documents that Store app deployment through Intune requires the
+        <strong>Intune Management Extension</strong>, at least two processor cores, and access to
+        Microsoft Store and app content endpoints.</li>
+      <li>Check Store policies, proxy and firewall rules, device enrollment, and Windows version before a
+        broad assignment. Pilot on a representative managed device.</li>
+      <li>The Store listing is currently available in the <strong>United States</strong>. Contact
+        <a href="support.html">support</a> before planning deployment in other countries.</li>
+    </ul>
+
+    <h2 id="blocked">If Store delivery is blocked</h2>
+    <p>No separately signed enterprise MSIX is offered at this time. If your organization cannot use
+      the Microsoft Store or winget's <code>msstore</code> source, contact <a href="support.html">support</a>
+      to discuss options.</p>
+
+    <h2 id="licensing">Licensing</h2>
+    <p>The Free tier is included with every install. Pro licenses are purchased through Lemon Squeezy, not
+      Microsoft Store, and are activated per device in <strong>Settings</strong>. Monthly and annual Pro
+      plans allow two device activations; the Team plan allows ten. See the
+      <a href="quick-start.html#pro">Quick start</a> for details.</p>
+
+    <h2 id="references">Microsoft references</h2>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/intune/app-management/deployment/add-microsoft-store">Add Microsoft Store apps to Microsoft Intune</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Use the winget tool to install and manage applications</a></li>
+    </ul>
+  </article>
+</main>
+<footer class="site-footer">
+  <div><strong>Dynamic Dynamo Kit</strong><p>&copy; 2026 Michael Schweitzer.</p></div>
+  <nav aria-label="Legal and support"><a href="privacy-policy.html">Privacy</a><a href="terms-of-use.html">Terms</a><a href="support.html">Support</a><a href="it-admins.html">For IT admins</a></nav>
+  <p class="disclaimer">Independent third-party product; not affiliated with, sponsored by, endorsed by, or produced or approved by Microsoft.</p>
+</footer>
+</body>
+</html>
